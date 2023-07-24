@@ -26,6 +26,8 @@
             // パラメータから取得・出力
             const url_ = params.get("u");
             document.querySelector(".main").src = url_;
+            document.querySelector(".dl_link").href = url_;
+            document.querySelector(".dl_link").download = url_;
             document.title = params.get("t");
             document.querySelector(".messege").innerHTML = params.get("m");
         }
@@ -35,6 +37,7 @@
 </head>
 <body>
     <div class="messege" style="max-height: 50px;"></div>
-    <iframe src="" frameborder="0" class="main" style="position: relative;height: calc(100% - 50px);width: 100%;background-color: whitesmoke;width: 100%;bottom: 0;left: 0;"></iframe>
+    <iframe src="" frameborder="0" class="main" style="position: relative;height: calc(100% - 50px -10px);width: 100%;background-color: whitesmoke;width: 100%;bottom: 0;left: 0;"></iframe>
+    <span style="background-color: black;width: 100%;height: 10px;font-size: small;z-index: 100;position: fixed;left: 0;bottom: 0;"><a href="" download="" style="color: white;list-style: none;" class="dl_link"></a></span>
 </body>
 </html>
