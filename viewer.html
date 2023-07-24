@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読み込み中</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // URLを取得
+            const url = new URL(window.location.href);
+
+            // URLSearchParamsオブジェクトを取得
+            const params = url.searchParams;
+
+            // consoleに受け取ったパラメータを出力
+            console.log(params);
+
+            // パラメータから取得・出力
+            const url_ = params.get("u");
+            document.querySelector(".main").data = url_;
+            document.title = params.get("t");
+            document.querySelector(".messege").innerHTML = params.get("m");
+        }
+        //URL例:https://sousuke-m.github.io/link/viewer.html?u=data_file/s.mp3&t=サンプルリンク&m=サンプルリンク
+    </script>
+</head>
+<body>
+    <div class="messege" style="max-height: 20px;"></div>
+    <span id="label1"></span>
+    <object data="" class="main" style="height: calc(100% - 20px);width: 100%;background-color: whitesmoke;width: 100%;"  aria-labelledby="label1"></object>
+</body>
+</html>
