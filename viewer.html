@@ -25,7 +25,7 @@
 
             // パラメータから取得・出力
             const url_ = params.get("u");
-            document.querySelector(".main").data = url_;
+            document.querySelector(".main").src = url_;
             document.title = params.get("t");
             document.querySelector(".messege").innerHTML = params.get("m");
         }
@@ -35,7 +35,6 @@
 </head>
 <body>
     <div class="messege" style="max-height: 20px;"></div>
-    <span id="label1"></span>
-    <object data="" class="main" style="height: calc(100% - 20px);width: 100%;background-color: whitesmoke;width: 100%;"  aria-labelledby="label1"></object>
+    <iframe src="" frameborder="0" class="main" style="height: calc(100% - 20px);width: 100%;background-color: whitesmoke;width: 100%;"></iframe>
 </body>
 </html>
