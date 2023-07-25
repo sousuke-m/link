@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読み込み中</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+    </style>
+    <!--
+    ----
+    ----CSSでは
+    ----text-align: center;で中央寄せ
+    ----
+    --->
+    <script>
+        window.onload = function() {
+            // URLを取得
+            const url = new URL(window.location.href);
+
+            // URLSearchParamsオブジェクトを取得
+            const params = url.searchParams;
+
+            // consoleに受け取ったパラメータを出力
+            console.log(params);
+
+            // パラメータから取得・出力
+            const url_ = params.get("u");
+            document.querySelector(".dl_link").href = url_;
+            document.querySelector(".dl_link").download = url_;
+            document.title = params.get("t");
+            document.querySelector(".messege").innerHTML = params.get("m");
+            document.querySelector(".dl_link").innerHTML = `"${url_.replace("data_file/","")}"をダウンロード`;
+            const URL__ = location.href;
+            document.querySelector(".view_m365").href = `https://view.officeapps.live.com/op/view.aspx?src=${URL__.replace("no_view.html","")}${url_}`;
+        }
+        //URL例:https://sousuke-m.github.io/link/no_view.html?u=data_file/s.mp4&t=サンプルリンク&m=サンプルリンク
+        //https://sousuke-m.github.io/link/no_view.html?u=data_file/kobe-ibukinooka_kyoikukuukan-exe-shogaku-6_夏休みカレンダー2023.docx&t=夏休みカレンダー2023&m=<h1>夏休みカレンダー2023</h1>
+    </script>
+</head>
+<body>
+    <div class="messege" style="max-height: 50px;display: grid;"></div>
+    <div class="main" style="position: fixed;bottom: 20px;height: calc(100% - 50px - 20px); width: 100%;background-color: whitesmoke;width: 100%;bottom: 0;left: 0;display: grid;text-align: center;color: gray;">
+        <h1>表示できません</h1>
+        <a href="https://view.officeapps.live.com/op/view.aspx?src=" target="_blank" class="view_m365">microsoft365で表示</a>
+    </div>
+    <span style="background-color: whitesmoke;width: 100%;height: 20px;font-size: small;z-index: 100;position: fixed;bottom: 0px;left: 0px;bottom: 0px;display: grid;"><a href="" download="" style="position: relative;color: black;list-style: none;text-align: center;text-align: center;width: 100%;bottom: 0px;" class="dl_link">ダウンロード</a></span>
+</body>
+</html>
