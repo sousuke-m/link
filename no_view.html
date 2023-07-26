@@ -38,7 +38,8 @@
             document.querySelector(".dl_link").innerHTML = `"${url_.replace("data_file/","")}"をダウンロード`;
             const URL__ = location.href;
             const src1 = URL__.replace("no_view.html","");
-            document.querySelector(".view_m365").href = `https://view.officeapps.live.com/op/view.aspx?src=${src1.replace(location.search(),"")}${url_}`;
+            const _c_url_ = src1.split("?");
+            document.querySelector(".view_m365").href = `https://view.officeapps.live.com/op/view.aspx?src=${_c_url_[0]}${url_}`;
         }
         //URL例:https://sousuke-m.github.io/link/no_view.html?u=data_file/s.mp4&t=サンプルリンク&m=サンプルリンク
         //https://sousuke-m.github.io/link/no_view.html?u=data_file/kobe-ibukinooka_kyoikukuukan-exe-shogaku-6_夏休みカレンダー2023.docx&t=夏休みカレンダー2023&m=<h1>夏休みカレンダー2023</h1>
